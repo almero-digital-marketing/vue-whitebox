@@ -1,0 +1,27 @@
+{
+  "name": "vue-whitebox",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "vite --host",
+    "build": "vite build",
+    "serve": "vite preview",
+    "prepare": "npm run build"
+  },
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/vue-whitebox.umd.js",
+  "module": "./dist/vue-whitebox.es.js",
+  "peerDependencies": {
+    "vue": "^3.2.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^1.6.1",
+    "@vue/compiler-sfc": "^3.2.6",
+    "vite": "^2.5.4"
+  },
+  "dependencies": {
+    "markdown-it": "^12.3.0",
+    "vue-dragscroll": "^3.0.1"
+  }
+}
