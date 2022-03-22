@@ -1,6 +1,6 @@
 {
   "name": "vue-whitebox",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "scripts": {
     "dev": "vite --host",
     "build": "vite build",
@@ -13,11 +13,14 @@
   "main": "./dist/vue-whitebox.umd.js",
   "module": "./dist/vue-whitebox.es.js",
   "peerDependencies": {
+    "mikser-whitebox-core": "^1.3.6",
     "vue": "^3.2.1"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^1.6.1",
+    "markdown-it-classy": "^0.2.0",
     "@vue/compiler-sfc": "^3.2.6",
+    "pinia": "^2.0.12",
     "vite": "^2.5.4"
   },
   "dependencies": {

@@ -1,5 +1,5 @@
 <template>
-    <a ref="phone" 
+    <a ref="component" 
         :href="'tel:' + phone" 
         target="_blank" 
         class="phone" 
@@ -9,42 +9,34 @@
         <slot></slot>
     </a>
 </template>
-<script>
-export default {
-    props: {
-        phone: {
-			type: String,
-			default: ''
-		},
-		format: {
-			type: String,
-			default: 'national'
-		},
-		tag: {
-			type: String,
-			default: ''
-        },
-        replace: {
-			type: String,
-			default: ''
-		}
+<script setup>
+import { onMounted, ref } from 'vue'
+
+defineProps({
+    phone: {
+        type: String,
+        default: ''
     },
-    methods: {
-        init() {
-            if (this.loaded) {
-                window.whitebox.init('voip', voip => {
-                    voip?.service.call(this.$refs.phone)
-                })
-            }
-        }
+    format: {
+        type: String,
+        default: 'national'
     },
-    watch: {
-        loaded() {
-            this.init()
-        }
+    tag: {
+        type: String,
+        default: ''
     },
-    mounted() {
-        this.init()
+    replace: {
+        type: String,
+        default: ''
     }
-}
+})
+
+const component = ref(null)
+
+onMounted(() => {
+    window.whitebox.init('voip', voip => {
+        voip?.service.call(component.value)
+    })
+})
+
 </script>

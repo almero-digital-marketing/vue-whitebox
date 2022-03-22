@@ -3,33 +3,30 @@
         <slot></slot>
     </a>
 </template>
-<script>
-export default {
-    props: {
-		href: {
-			type: String,
-			default: ''
-		},
-		title: {
-			type: String,
-			default: ''
-        },
-        target: {
-			type: String,
-			default: '_blank'
-		}
+<script setup>
+defineProps({
+    href: {
+        type: String,
+        default: ''
     },
-    methods: {
-        trackLink(e) {
-            let href = e.target.getAttribute('href')
-            let { hostname } = new URL(href)
-            window.whitebox.init('analytics', analytics => {
-                analytics?.service.context('external', {
-                    hostname,
-                    href
-                })
-            })
-        }
+    title: {
+        type: String,
+        default: ''
+    },
+    target: {
+        type: String,
+        default: '_blank'
     }
+})
+
+function trackLink(e) {
+    const href = e.target.getAttribute('href')
+    const { hostname } = new URL(href)
+    window.whitebox.init('analytics', analytics => {
+        analytics?.service.context('external', {
+            hostname,
+            href
+        })
+    })
 }
 </script>
