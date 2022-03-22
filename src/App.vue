@@ -13,6 +13,7 @@ import { provide } from 'vue'
 import classy from 'markdown-it-classy'
 
 provide('markdown-plugins', [{
-    plugin: classy
+    plugin: linkAttributes,
+    options: {}
 }])
 </script>
