@@ -14,14 +14,16 @@ export default defineConfig({
     rollupOptions: {
       // make sure to externalize deps that shouldn't be bundled
       // into your library
-      external: ['vue', 'mikser-whitebox-core'],
+      external: ['vue', 'mikser-whitebox-core', 'vue-router', 'markdown-it'],
       output: {
         exports: 'named',
         // Provide global variables to use in the UMD build
         // for externalized deps
         globals: {
           vue: 'Vue',
-          'mikser-whitebox-core': 'MikserWhiteboxCore'
+          'mikser-whitebox-core': 'MikserWhiteboxCore',
+          'vue-router': 'VueRouter',
+          'markdown-it': 'MarkdownIt'
         }
       }
     }

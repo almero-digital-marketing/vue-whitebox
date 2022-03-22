@@ -26,8 +26,10 @@ const props = defineProps({
 	}
 })
 
-const defaultOptions = inject('markdown-options', {})
-const defaultPlugins = inject('markdown-plugins', [])
+const config = inject('markdown', {
+	options: {},
+	plugins: []
+})
 
 const documents = useWhiteboxDocuments()
 const routes = useWhiteboxRoutes()
@@ -38,12 +40,12 @@ const markdown =  computed(() => {
 	let markdown = new MarkdownIt({
 		html: true,
 		breaks: true, 
-		...defaultOptions,
+		...config.options,
 		...props.options
 	})
 	const plugins = [
 		...props.plugins, 
-		...defaultPlugins
+		...config.plugins
 	]
 	plugins.forEach(({ plugin, options }) => {
 		markdown.use(plugin, options)
