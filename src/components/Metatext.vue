@@ -12,12 +12,12 @@ const props = defineProps({
 	},
 })
 const metatext = computed(() => {
-	if (typeof this.source != 'string') {
+	if (typeof props.source != 'string') {
 		let err = new Error('Argument is not a string');
 		err.origin = 'metatext';
 		throw err;
 	}
-	return this.source
+	return props.source
 		.replaceAll('<','<<')
 		.replaceAll('>','>>')
 		.replaceAll('<<','<s>')
