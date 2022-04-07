@@ -5,14 +5,14 @@
         class="phone" 
         :data-whitebox-voip-format="format" 
         :data-whitebox-voip-tag="tag" 
-        :data-whitebox-voip-replace="replace">
+        :data-whitebox-voip-replace="voipReplace">
         <slot></slot>
     </a>
 </template>
 <script setup>
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, computed } from 'vue'
 
-defineProps({
+const props = defineProps({
     phone: {
         type: String,
         default: ''
@@ -28,7 +28,15 @@ defineProps({
     replace: {
         type: String,
         default: ''
+    },
+    replaceExpression: {
+        type: String,
+        default: ''
     }
+})
+
+const voipReplace = computed(() => {
+    return props.replaceExpression || props.replace.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
 })
 
 const component = ref(null)
