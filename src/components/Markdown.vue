@@ -119,8 +119,8 @@ function routeLinks(e) {
 			if (href[0] != '#') {
 				let route = routes.documentRoutes[href]
 				if (route) {
-					router.push(href)
 					e.preventDefault()
+					router.push(encodeURI(href))
 				}
 			}
 		}
