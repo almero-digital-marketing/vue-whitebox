@@ -1,6 +1,6 @@
 {
   "name": "vue-whitebox",
-  "version": "2.1.5",
+  "version": "2.1.7",
   "scripts": {
     "dev": "vite --host",
     "build": "vite build",

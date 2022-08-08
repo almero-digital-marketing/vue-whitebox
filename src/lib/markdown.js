@@ -6,11 +6,9 @@ function markdown(source, options = {}, plugins = []) {
         breaks: true, 
         ...options
     })
-    if (options.plugins) {
-        options.plugins.forEach(({ plugin, options }) => {
-            markdown.use(plugin, options)
-        })
-    }
+    plugins.forEach(({ plugin, options }) => {
+        markdown.use(plugin, options)
+    })
     try {
         return markdown.render(source || '')
     } catch(err) {
