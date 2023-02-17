@@ -3,7 +3,7 @@
 </template>
 <script setup>
 import MarkdownIt from 'markdown-it'
-import { computed, onMounted, ref, inject } from 'vue'
+import { computed, onUpdated, ref, inject, onMounted, nextTick } from 'vue'
 import { useWhiteboxDocuments, useWhiteboxRoutes } from 'mikser-whitebox-core'
 import { useRouter } from 'vue-router'
 
@@ -127,7 +127,7 @@ function routeLinks(e) {
 	}
 }
 
-onMounted(() => {
+function refreshVoip() {
 	for(let link of component.value.querySelectorAll("a")) {
 		let href = decodeURI(link.getAttribute('href'))
 		const isPhone = /^tel:/.test(href)
@@ -137,5 +137,8 @@ onMounted(() => {
 			})
 		}
 	}
-})
+}
+
+onUpdated(refreshVoip)
+onMounted(() => nextTick(refreshVoip))
 </script>

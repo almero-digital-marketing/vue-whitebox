@@ -11,5 +11,5 @@
 import { ref } from 'vue'
 import Markdown from '../components/Markdown.vue'
 
-const source = ref('')
+const source = ref('При изпращане на запитването ви възника грешла. Можете да се свържете с нас на телефон ![Телефон](/img/phone.svg) [0879243684](tel:0879243684@sofia)')
 </script>
