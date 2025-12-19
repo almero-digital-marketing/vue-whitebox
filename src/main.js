@@ -1,7 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import { createPinia } from 'pinia'
-import { createMikser } from 'mikser-whitebox-core'
+import { createMikser } from 'mikser-whitebox-sdk'
 import { createRouter, createWebHistory } from 'vue-router'
 
 const app = createApp(App)

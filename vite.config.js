@@ -9,19 +9,19 @@ export default defineConfig({
     lib: {
       entry: path.resolve(__dirname, '/src/index.js'),
       name: 'VueWhitebox',
-      fileName: (format) => `vue-whitebox.${format}.js`
+      fileName: (format) => `vue-whitebox-components.${format}.js`
     },
     rollupOptions: {
       // make sure to externalize deps that shouldn't be bundled
       // into your library
-      external: ['vue', 'mikser-whitebox-core', 'vue-router', 'markdown-it'],
+      external: ['vue', 'mikser-whitebox-sdk', 'vue-router', 'markdown-it'],
       output: {
         exports: 'named',
         // Provide global variables to use in the UMD build
         // for externalized deps
         globals: {
           vue: 'Vue',
-          'mikser-whitebox-core': 'MikserWhiteboxCore',
+          'mikser-whitebox-sdk': 'MikserWhiteboxSdk',
           'vue-router': 'VueRouter',
           'markdown-it': 'MarkdownIt'
         }

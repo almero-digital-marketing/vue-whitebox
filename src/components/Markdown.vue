@@ -4,7 +4,7 @@
 <script setup>
 import MarkdownIt from 'markdown-it'
 import { computed, onUpdated, ref, inject, onMounted, nextTick } from 'vue'
-import { useWhiteboxDocuments, useWhiteboxRoutes } from 'mikser-whitebox-core'
+import { useWhiteboxDocuments, useWhiteboxRoutes } from 'mikser-whitebox-sdk'
 import { useRouter } from 'vue-router'
 
 const props = defineProps({

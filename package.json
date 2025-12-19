@@ -1,5 +1,5 @@
 {
-  "name": "vue-whitebox",
+  "name": "vue-whitebox-components",
   "version": "2.3.2",
   "scripts": {
     "dev": "vite --host",
@@ -10,10 +10,10 @@
   "files": [
     "dist"
   ],
-  "main": "./dist/vue-whitebox.umd.js",
-  "module": "./dist/vue-whitebox.es.js",
+  "main": "./dist/vue-whitebox-components.umd.js",
+  "module": "./dist/vue-whitebox-components.es.js",
   "peerDependencies": {
-    "mikser-whitebox-core": "x",
+    "mikser-whitebox-sdk": "x",
     "vue": "3.x",
     "vue-router": "4.x",
     "markdown-it": "14.x"
